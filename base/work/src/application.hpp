@@ -7,7 +7,7 @@
 // project
 #include "opengl.hpp"
 #include "triangle.hpp"
-
+#include "objfile.hpp"
 
 // Main application class
 //
@@ -22,6 +22,9 @@ private:
 
 	// test triangle model
 	TestTriangle m_model;
+
+	// custom obj file class
+	ObjFile my_object;
 
 public:
 	// setup

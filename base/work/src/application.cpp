@@ -14,6 +14,7 @@
 #include "cgra/cgra_gui.hpp"
 #include "cgra/cgra_shader.hpp"
 
+#include "objfile.hpp"
 
 using namespace std;
 using namespace cgra;
@@ -29,7 +30,8 @@ Application::Application(GLFWwindow *window) : m_window(window) {
 	m_shader = color_sb.build();
 
 	// build the mesh for the triangle
-	m_model.setup();
+	//m_model.setup();
+		
 }
 
 
@@ -60,7 +62,8 @@ void Application::render() {
 	glUniformMatrix4fv(glGetUniformLocation(m_shader, "uModelViewMatrix"), 1, false, value_ptr(view));
 
 	// draw the model
-	m_model.draw();
+	//m_model.draw();
+	my_object.draw();
 }
 
 
@@ -77,6 +80,8 @@ void Application::renderGUI() {
 	ImGui::SameLine();
 	if (ImGui::Button("Load")) {
 		// TODO load mesh from 'filename'
+		my_object.loadOBJ(filename);
+		my_object.build();
 	}
 
 	ImGui::SameLine();

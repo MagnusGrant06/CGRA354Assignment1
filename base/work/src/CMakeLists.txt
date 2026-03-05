@@ -15,6 +15,9 @@ SET(sources
 	"main.cpp"
 
 	"triangle.hpp"
+	
+	"objfile.hpp"
+	"objfile.cpp"
 
 	"CMakeLists.txt"
 )
@@ -27,7 +30,7 @@ add_executable(${CGRA_PROJECT} ${sources})
 # ----------------------------- #
 add_subdirectory(cgra)
 
-
+target_include_directories(base PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 #########################################################
 # Link and Build Executable

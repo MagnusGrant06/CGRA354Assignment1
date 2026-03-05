@@ -1,0 +1,16 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/glfw/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/glfw/src/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/glew-1.10.0/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/stb/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/imgui/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/ext/glm/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/src/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/src/cgra/cmake_install.cmake",
+		"C:/Users/magnu/projects/CGRA354_Framework/base/work/out/build/x64-Debug/res/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
