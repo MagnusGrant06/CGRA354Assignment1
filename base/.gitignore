@@ -1,3 +1,10 @@
 /build
 /x64
+out/
+.vs/
+*.exe
+*.lib
+*.pdb
+*.ilk
+*.obj
 imgui.ini

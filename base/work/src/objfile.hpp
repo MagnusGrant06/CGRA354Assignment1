@@ -18,15 +18,19 @@ public:
 
 	void printMeshData();
 
-
+	//custom Vertex struct to reduce code size in concrete implementation
+	struct Vertex {
+		glm::vec3 position;
+		//glm::vec3 texture;
+		glm::vec3 normal;
+	};
+	
 private:
 
-	std::vector<glm::vec3> vertices;
-	std::vector<glm::vec3> normals;
+	std::vector<Vertex> vertices;
 	std::vector<int> indices;
 
 	GLuint vao = 0;
-	GLuint vbo_pos = 0;
-	GLuint vbo_norm = 0;
+	GLuint vbo = 0;
 	GLuint ibo = 0;
 };

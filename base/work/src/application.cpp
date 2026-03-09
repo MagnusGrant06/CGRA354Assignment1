@@ -83,6 +83,11 @@ void Application::renderGUI() {
 		my_object.loadOBJ(filename);
 		my_object.build();
 	}
+	
+	ImGui::SameLine();
+	if (ImGui::Button("Print Mesh Data")) {
+		my_object.printMeshData();
+	}
 
 	ImGui::SameLine();
 	if (ImGui::Button("Print")) {
