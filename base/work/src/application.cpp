@@ -61,6 +61,9 @@ void Application::render() {
 	glUniformMatrix4fv(glGetUniformLocation(m_shader, "uProjectionMatrix"), 1, false, value_ptr(proj));
 	glUniformMatrix4fv(glGetUniformLocation(m_shader, "uModelViewMatrix"), 1, false, value_ptr(view));
 
+	//custom vector for holding user inputted information for color
+	GLint loc = glGetUniformLocation(m_shader, "color");
+	glUniform3f(loc, colors[0], colors[1], colors[2]);
 	// draw the model
 	//m_model.draw();
 	my_object.draw();
@@ -83,21 +86,21 @@ void Application::renderGUI() {
 		my_object.loadOBJ(filename);
 		my_object.build();
 	}
-	
-	ImGui::SameLine();
-	if (ImGui::Button("Print Mesh Data")) {
-		my_object.printMeshData();
-	}
 
 	ImGui::SameLine();
 	if (ImGui::Button("Print")) {
 		// TODO print mesh data
+		my_object.printMeshData();
 	}
 
 	ImGui::SameLine();
 	if (ImGui::Button("Unload")) {
 		// TODO unload mesh
+		my_object.destroy();
 	}
+
+	ImGui::NewLine();
+	ImGui::ColorEdit3("Pick Color", colors);
 
 	// finish creating window
 	ImGui::End();

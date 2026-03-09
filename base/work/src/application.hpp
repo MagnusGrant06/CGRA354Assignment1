@@ -26,6 +26,9 @@ private:
 	// custom obj file class
 	ObjFile my_object;
 
+	//custom color floats
+	float colors[3] = { 0.066,0.341, 0.215 };
+
 public:
 	// setup
 	Application(GLFWwindow *);
