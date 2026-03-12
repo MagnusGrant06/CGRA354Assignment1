@@ -4,6 +4,7 @@
 uniform mat4 uProjectionMatrix;
 uniform mat4 uModelViewMatrix;
 uniform vec3 color;
+uniform vec3 light_position;
 
 // viewspace data (this must match the output of the vertex shader)
 in VertexData {
@@ -18,7 +19,7 @@ void main() {
 	// calculate shading
 	vec3 surfaceColor = color;
 	vec3 eye = normalize(-f_in.position); // direction towards the eye
-	float light = abs(dot(normalize(f_in.normal), eye)); // difference between the surface normal and direction towards the eye
+	float light = dot(normalize(f_in.normal),light_position); // difference between the surface normal and direction towards the eye
 	vec3 finalColor = mix(surfaceColor / 4, surfaceColor, light);
 
 	// output to the frambuffer

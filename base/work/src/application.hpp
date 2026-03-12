@@ -29,6 +29,9 @@ private:
 	//custom color floats
 	float colors[3] = { 0.066,0.341, 0.215 };
 
+	float light_height = 0.0;
+	float light_width = 0.0;
+
 public:
 	// setup
 	Application(GLFWwindow *);

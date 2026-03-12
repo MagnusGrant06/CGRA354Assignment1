@@ -62,8 +62,13 @@ void Application::render() {
 	glUniformMatrix4fv(glGetUniformLocation(m_shader, "uModelViewMatrix"), 1, false, value_ptr(view));
 
 	//custom vector for holding user inputted information for color
-	GLint loc = glGetUniformLocation(m_shader, "color");
-	glUniform3f(loc, colors[0], colors[1], colors[2]);
+	GLint col = glGetUniformLocation(m_shader, "color");
+	glUniform3f(col, colors[0], colors[1], colors[2]);
+
+
+	GLint light_y = glGetUniformLocation(m_shader, "light_position");
+	glUniform3f(light_y, (float)light_width, (float)light_height, 0.0);
+
 	// draw the model
 	//m_model.draw();
 	my_object.draw();
@@ -101,6 +106,10 @@ void Application::renderGUI() {
 
 	ImGui::NewLine();
 	ImGui::ColorEdit3("Pick Color", colors);
+
+	//two sliders for moving light around object
+	ImGui::SliderFloat("Change Vertical Rotation of light", &light_height, -1.0, 1.0);
+	ImGui::SliderFloat("Change Horizontal Rotation of light", &light_width, -1.0, 1.0);
 
 	// finish creating window
 	ImGui::End();
