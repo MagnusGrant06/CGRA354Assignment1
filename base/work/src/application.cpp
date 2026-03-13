@@ -55,6 +55,7 @@ void Application::render() {
 	// calculate the projection and view matrix
 	mat4 proj = perspective(1.f, float(width) / height, 0.1f, 1000.f);
 	mat4 view = translate(mat4(1), vec3(0, -5, -20));
+	view = rotate(view, glm::radians(180.0f), vec3(0, 1, 0));
 
 	// set shader and upload variables
 	glUseProgram(m_shader);
@@ -65,9 +66,10 @@ void Application::render() {
 	GLint col = glGetUniformLocation(m_shader, "color");
 	glUniform3f(col, colors[0], colors[1], colors[2]);
 
-
+	//custom vector for holding user inputted information for light position
 	GLint light_y = glGetUniformLocation(m_shader, "light_position");
-	glUniform3f(light_y, (float)light_width, (float)light_height, 0.0);
+	glUniform3f(light_y, (float)light_width, (float)light_height, (float)light_depth);
+
 
 	// draw the model
 	//m_model.draw();
@@ -79,7 +81,7 @@ void Application::renderGUI() {
 
 	// setup window
 	ImGui::SetNextWindowPos(ImVec2(5, 5), ImGuiSetCond_Once);
-	ImGui::SetNextWindowSize(ImVec2(500, 50), ImGuiSetCond_Once);
+	ImGui::SetNextWindowSize(ImVec2(500, 160), ImGuiSetCond_Once);
 	ImGui::Begin("Mesh loader", 0);
 
 	// Loading buttons
@@ -110,6 +112,7 @@ void Application::renderGUI() {
 	//two sliders for moving light around object
 	ImGui::SliderFloat("Change Vertical Rotation of light", &light_height, -1.0, 1.0);
 	ImGui::SliderFloat("Change Horizontal Rotation of light", &light_width, -1.0, 1.0);
+	ImGui::SliderFloat("Change Z Rotation of light", &light_depth, -1.0, 1.0);
 
 	// finish creating window
 	ImGui::End();

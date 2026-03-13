@@ -31,6 +31,7 @@ private:
 
 	float light_height = 0.0;
 	float light_width = 0.0;
+	float light_depth = 0.0;
 
 public:
 	// setup
